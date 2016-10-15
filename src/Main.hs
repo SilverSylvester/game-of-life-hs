@@ -20,7 +20,7 @@ import System.Environment  (getProgName)
 
 type Rows = Int
 type Cols = Int
-type FPS = Int
+type FPS  = Int
 
 -- | Command line options
 data Opts = PDef String FPS
@@ -75,7 +75,8 @@ main = execParser opts >>= run
       putStrLn "Not sure you actually wanted this but here anyway."
       print grid
 
-    loop hz _ | hz <= 1 = putStrLn "No support for negative entropy (yet?)"
+    loop hz _ | hz <= 1 =
+      putStrLn "No support for negative entropy (yet?)"
 
     loop hz grid = do
       let futureStates = iterate update grid
